@@ -54,6 +54,11 @@ artifacts/
 *.ilk
 *.meta
 *.obj
+*.o
+*.d
+*.dll
+*.so
+*.dylib
 *.pch
 *.pdb
 *.pgc
