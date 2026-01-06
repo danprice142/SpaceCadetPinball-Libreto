@@ -197,7 +197,7 @@ RETRO_API void retro_set_environment(retro_environment_t cb)
     if (cb(RETRO_ENVIRONMENT_GET_LOG_INTERFACE, &log))
         log_cb = log.log;
 
-    bool no_content = false;
+    bool no_content = true;
     cb(RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME, &no_content);
 
     enum retro_pixel_format fmt = RETRO_PIXEL_FORMAT_XRGB8888;
@@ -354,7 +354,7 @@ RETRO_API bool retro_load_game(const struct retro_game_info *game)
     }
     else
     {
-        base_path = system_dir.empty() ? "./" : system_dir + "/";
+        base_path = system_dir.empty() ? "./SpaceCadetPinball/" : system_dir + "/SpaceCadetPinball/";
         
         const char* dat_files[] = { "PINBALL.DAT", "CADET.DAT", "pinball.dat", "cadet.dat" };
         for (const char* dat : dat_files)
@@ -371,7 +371,8 @@ RETRO_API bool retro_load_game(const struct retro_game_info *game)
         
         if (dat_file.empty())
         {
-            LOG_ERROR("Could not find game data\n");
+            LOG_ERROR("Could not find game data in %s\n", base_path.c_str());
+            LOG_ERROR("Please place PINBALL.DAT or CADET.DAT in the SpaceCadetPinball subdirectory\n");
             return false;
         }
     }

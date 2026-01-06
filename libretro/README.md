@@ -32,14 +32,16 @@ make clean    # Clean build artifacts
 ## Installation
 
 1. Copy `spacecadetpinball_libretro.dll` to your RetroArch `cores` directory
-2. Copy game data files (PINBALL.DAT, etc.) to RetroArch `system` directory
+2. Create `system/SpaceCadetPinball` directory in RetroArch
+3. Copy game data files (PINBALL.DAT, etc.) to `system/SpaceCadetPinball` directory
 
 ## Usage
 
 ### Loading the Core
 1. Open RetroArch
 2. Load Core -> Select "Space Cadet Pinball"
-3. Load Content -> Select your PINBALL.DAT file (or use "Start Core" if data is in system dir)
+3. Start Core (game will auto-load if files are in system/SpaceCadetPinball)
+   - Alternatively: Load Content -> Select your PINBALL.DAT file directly
 
 ### Controls
 
@@ -60,8 +62,10 @@ The core requires the original Space Cadet Pinball data files:
 - `PINBALL.DAT` - Main game data
 - Or `CADET.DAT` for Full Tilt mode
 
+Place these files in: `RetroArch/system/SpaceCadetPinball/`
+
 These can be found in:
-- Windows XP/Vista installations
+- Windows XP/Vista installations (usually `C:\Program Files\Windows NT\Pinball\`)
 - Full Tilt! Pinball game
 
 ## Technical Details
